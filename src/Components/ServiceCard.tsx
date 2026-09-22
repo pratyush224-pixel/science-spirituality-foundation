@@ -6,6 +6,10 @@ interface ServiceCardProps {
   link: string;
 }
 
+const BASE_PATH = window.location.hostname.endsWith("github.io")
+  ? "/science-spirituality-foundation"
+  : "";
+
 const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   description,
@@ -19,7 +23,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
       <p>{description}</p>
 
-      <a href={link} className="service-card-link">
+      <a
+        href={`${BASE_PATH}${link}`}
+        className="service-card-link"
+      >
         Learn More
         <span>→</span>
       </a>
