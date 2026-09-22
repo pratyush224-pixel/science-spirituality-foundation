@@ -10,6 +10,10 @@ Please share the available services, timings and session details.
 
 Thank you.`;
 
+const BASE_PATH = window.location.hostname.endsWith("github.io")
+  ? "/science-spirituality-foundation"
+  : "";
+
 const openWhatsApp = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     WHATSAPP_MESSAGE
@@ -19,7 +23,7 @@ const openWhatsApp = () => {
 };
 
 const navigateTo = (path: string) => {
-  window.history.pushState({}, "", path);
+  window.history.pushState({}, "", `${BASE_PATH}${path}`);
   window.dispatchEvent(new PopStateEvent("popstate"));
 };
 
@@ -61,7 +65,9 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const handleWhatsAppClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleWhatsAppClick = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
     event.preventDefault();
 
     setMenuOpen(false);
@@ -72,63 +78,68 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* LOGO */}
 
+        {/* LOGO */}
         <a
-          href="/"
+          href={`${BASE_PATH}/`}
           className="navbar-logo"
           onClick={(event) => handleNavigation(event, "/")}
         >
           <img
-            src="/ssf-logo.webp"
+            src={`${BASE_PATH}/ssf-logo.webp`}
             alt="Science & Spirituality Foundation"
             className="navbar-logo-image"
           />
 
           <div className="navbar-logo-text">
             <span className="logo-main">Science & Spirituality</span>
-
             <span className="logo-sub">Foundation</span>
           </div>
         </a>
 
         {/* DESKTOP NAVIGATION */}
-
         <div className="navbar-links">
-          <a href="/" onClick={(event) => handleNavigation(event, "/")}>
+
+          <a
+            href={`${BASE_PATH}/`}
+            onClick={(event) => handleNavigation(event, "/")}
+          >
             Home
           </a>
 
           <a
-            href="/#about"
+            href={`${BASE_PATH}/#about`}
             onClick={(event) => handleNavigation(event, "/#about")}
           >
             About
           </a>
 
           <a
-            href="/#services"
+            href={`${BASE_PATH}/#services`}
             onClick={(event) => handleNavigation(event, "/#services")}
           >
             Services
           </a>
 
           <a
-            href="/certificates"
-            onClick={(event) => handleNavigation(event, "/certificates")}
+            href={`${BASE_PATH}/certificates`}
+            onClick={(event) =>
+              handleNavigation(event, "/certificates")
+            }
           >
             Certificates
           </a>
 
           <a
-            href="/#testimonials"
-            onClick={(event) => handleNavigation(event, "/#testimonials")}
+            href={`${BASE_PATH}/#testimonials`}
+            onClick={(event) =>
+              handleNavigation(event, "/#testimonials")
+            }
           >
             Testimonials
           </a>
 
           {/* BOOK A SESSION → WHATSAPP */}
-
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             onClick={handleWhatsAppClick}
@@ -137,7 +148,7 @@ const Navbar: React.FC = () => {
           </a>
 
           <a
-            href="/#contact"
+            href={`${BASE_PATH}/#contact`}
             onClick={(event) => handleNavigation(event, "/#contact")}
           >
             Contact
@@ -145,7 +156,6 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* MOBILE MENU BUTTON */}
-
         <button
           className="mobile-menu-button"
           type="button"
@@ -157,43 +167,51 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* MOBILE MENU */}
-
         {menuOpen && (
           <div className="mobile-menu">
-            <a href="/" onClick={(event) => handleNavigation(event, "/")}>
+
+            <a
+              href={`${BASE_PATH}/`}
+              onClick={(event) => handleNavigation(event, "/")}
+            >
               Home
             </a>
 
             <a
-              href="/#about"
+              href={`${BASE_PATH}/#about`}
               onClick={(event) => handleNavigation(event, "/#about")}
             >
               About
             </a>
 
             <a
-              href="/#services"
-              onClick={(event) => handleNavigation(event, "/#services")}
+              href={`${BASE_PATH}/#services`}
+              onClick={(event) =>
+                handleNavigation(event, "/#services")
+              }
             >
               Services
             </a>
 
             <a
-              href="/certificates"
-              onClick={(event) => handleNavigation(event, "/certificates")}
+              href={`${BASE_PATH}/certificates`}
+              onClick={(event) =>
+                handleNavigation(event, "/certificates")
+              }
             >
               Certificates
             </a>
 
             <a
-              href="/#testimonials"
-              onClick={(event) => handleNavigation(event, "/#testimonials")}
+              href={`${BASE_PATH}/#testimonials`}
+              onClick={(event) =>
+                handleNavigation(event, "/#testimonials")
+              }
             >
               Testimonials
             </a>
 
             {/* MOBILE BOOK A SESSION → WHATSAPP */}
-
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               onClick={handleWhatsAppClick}
@@ -202,7 +220,7 @@ const Navbar: React.FC = () => {
             </a>
 
             <a
-              href="/#contact"
+              href={`${BASE_PATH}/#contact`}
               onClick={(event) => handleNavigation(event, "/#contact")}
             >
               Contact
@@ -212,7 +230,6 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* MOBILE MENU STYLES */}
-
       <style>
         {`
           .mobile-menu {
@@ -276,11 +293,9 @@ const Navbar: React.FC = () => {
           }
 
           @media (min-width: 769px) {
-
             .mobile-menu-button {
               display: none;
             }
-
           }
         `}
       </style>
