@@ -179,14 +179,12 @@ select {
   align-items: center;
 
   position: relative;
-
   background: linear-gradient(
-      90deg,
-      rgba(13, 47, 32, 0.86),
-      rgba(13, 47, 32, 0.52),
-      rgba(13, 47, 32, 0.22)
-    ),
-    url("./assets/ssf-banner.png");
+    90deg,
+    rgba(13, 47, 32, 0.86),
+    rgba(13, 47, 32, 0.52),
+    rgba(13, 47, 32, 0.22)
+  );
 
   background-size: cover;
   background-position: center;
