@@ -1,5 +1,9 @@
 import React from "react";
 
+const BASE_PATH = window.location.hostname.endsWith("github.io")
+  ? "/science-spirituality-foundation"
+  : "";
+
 const certificates = [
   {
     title: "Advanced Reiki Healer",
@@ -7,7 +11,7 @@ const certificates = [
     organisation: "Reiki Healing Foundation",
     date: "22–23 August 2026",
     code: "R.H.F. Code: DL/AUG/7595",
-    image: "/certificate-2-advanced-reiki-healer.jpg",
+    image: `${BASE_PATH}/certificate-2-advanced-reiki-healer.jpg`,
   },
   {
     title: "Reiki & Mind Power Course",
@@ -15,7 +19,23 @@ const certificates = [
     organisation: "Reiki Healing Foundation",
     date: "22–23 August 2026",
     code: "Regn. No.: DL/AUG/7595",
-    image: "/certificate-1-reiki-membership.jpg",
+    image: `${BASE_PATH}/certificate-1-reiki-membership.jpg`,
+  },
+  {
+    title: "Dowsing",
+    category: "Certificate",
+    organisation: "Reiki Healing Foundation",
+    date: "30 August 2026",
+    code: "R.H.F. Code: DL/AUG/1506",
+    image: `${BASE_PATH}/dowsing-certificate.webp`,
+  },
+  {
+    title: "Dowsing Membership Card",
+    category: "Membership",
+    organisation: "Reiki Healing Foundation",
+    date: "30 August 2026",
+    code: "Regn. No.: DL/AUG/1506",
+    image: `${BASE_PATH}/dowsing-membership-card.jpg`,
   },
 ];
 
@@ -191,8 +211,8 @@ const Certificates: React.FC = () => {
               <h3>More Achievements to Come</h3>
 
               <p>
-                New certificates, professional training and recognitions will be
-                added here as the journey continues.
+                New certificates, professional training and recognitions will
+                be added here as the journey continues.
               </p>
             </div>
           </div>
