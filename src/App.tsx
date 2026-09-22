@@ -14,12 +14,25 @@ import { servicePages } from "./Components/serviceData";
 
 import "./styles.css";
 
+function getAppPath() {
+  const pathname = window.location.pathname;
+
+  const basePath = "/science-spirituality-foundation";
+
+  if (pathname.startsWith(basePath)) {
+    const path = pathname.slice(basePath.length);
+    return path || "/";
+  }
+
+  return pathname || "/";
+}
+
 export default function App() {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [currentPath, setCurrentPath] = useState(getAppPath());
 
   useEffect(() => {
     const handleNavigation = () => {
-      setCurrentPath(window.location.pathname);
+      setCurrentPath(getAppPath());
     };
 
     window.addEventListener("popstate", handleNavigation);
