@@ -6,6 +6,10 @@ interface ServicePageProps {
   sections: any[];
 }
 
+const BASE_PATH = window.location.hostname.endsWith("github.io")
+  ? "/science-spirituality-foundation"
+  : "";
+
 const reikiConcerns = [
   "Stress & Anxiety",
   "Headaches & Migraines",
@@ -347,7 +351,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {isReiki && (
         <section className="service-image-hero">
           <img
-            src="/reiki-healing.webp"
+            src={`${BASE_PATH}/reiki-healing.webp`}
             alt="Reiki Healing"
             className="service-hero-image"
           />
@@ -357,7 +361,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {isDowsing && (
         <section className="service-image-hero">
           <img
-            src="/dowsing.webp"
+            src={`${BASE_PATH}/dowsing.webp`}
             alt="Dowsing"
             className="service-hero-image"
           />
@@ -367,7 +371,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {isPastLife && (
         <section className="service-image-hero">
           <img
-            src="/past-life-regression.webp"
+            src={`${BASE_PATH}/past-life-regression.webp`}
             alt="Past Life Regression"
             className="service-hero-image"
           />
@@ -377,7 +381,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {isChakra && (
         <section className="service-image-hero">
           <img
-            src="/chakra-wellness.webp"
+            src={`${BASE_PATH}/chakra-wellness.webp`}
             alt="Chakra Wellness"
             className="service-hero-image"
           />
@@ -387,7 +391,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {isSpiritual && (
         <section className="service-image-hero">
           <img
-            src="/spiritual-wellness.webp"
+            src={`${BASE_PATH}/spiritual-wellness.webp`}
             alt="Spiritual Wellness"
             className="service-hero-image"
           />
@@ -397,7 +401,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {isMeditation && (
         <section className="service-image-hero">
           <img
-            src="/meditation.webp"
+            src={`${BASE_PATH}/meditation.webp`}
             alt="Meditation"
             className="service-hero-image"
           />
@@ -407,7 +411,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {isManifestation && (
         <section className="service-image-hero">
           <img
-            src="/manifestation.webp"
+            src={`${BASE_PATH}/manifestation.webp`}
             alt="Manifestation"
             className="service-hero-image"
           />
@@ -417,7 +421,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
       {isFingerprint && (
         <section className="service-image-hero">
           <img
-            src="/fingerprint-analysis.webp"
+            src={`${BASE_PATH}/fingerprint-analysis.webp`}
             alt="Fingerprint Analysis"
             className="service-hero-image"
           />
