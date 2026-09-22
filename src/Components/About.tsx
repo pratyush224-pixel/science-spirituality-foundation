@@ -1,9 +1,14 @@
 import React from "react";
 
+const BASE_PATH = window.location.hostname.endsWith("github.io")
+  ? "/science-spirituality-foundation"
+  : "";
+
 const About: React.FC = () => {
   return (
     <section id="about" className="about-section">
       <div className="about-container">
+
         {/* ABOUT THE FOUNDATION */}
 
         <div className="about-content">
@@ -42,7 +47,7 @@ const About: React.FC = () => {
         <div className="founder-profile">
           <div className="founder-image-wrapper">
             <img
-              src="/founder-photo-website.jpg"
+              src={`${BASE_PATH}/founder-photo-website.jpg`}
               alt="Pratyush Kumar Panigrahi - Founder, Science & Spirituality Foundation"
               className="founder-image"
             />
@@ -156,6 +161,7 @@ const About: React.FC = () => {
             </p>
           </div>
         </div>
+
       </div>
     </section>
   );
