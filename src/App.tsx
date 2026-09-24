@@ -15,13 +15,20 @@ import { servicePages } from "./Components/serviceData";
 import "./styles.css";
 
 function getAppPath() {
-  const pathname = window.location.pathname;
+  let pathname = window.location.pathname;
 
   const basePath = "/science-spirituality-foundation";
 
-  if (pathname.startsWith(basePath)) {
-    const path = pathname.slice(basePath.length);
-    return path || "/";
+  // Remove GitHub Pages project path when running on github.io
+  if (pathname === basePath) {
+    pathname = "/";
+  } else if (pathname.startsWith(`${basePath}/`)) {
+    pathname = pathname.slice(basePath.length);
+  }
+
+  // Remove trailing slash except for homepage
+  if (pathname.length > 1 && pathname.endsWith("/")) {
+    pathname = pathname.slice(0, -1);
   }
 
   return pathname || "/";
@@ -42,16 +49,20 @@ export default function App() {
     };
   }, []);
 
+  // Certificates page
   if (currentPath === "/certificates") {
     return (
       <div className="App">
         <Navbar />
+
         <Certificates />
+
         <Footer />
       </div>
     );
   }
 
+  // Service pages
   const service = servicePages[currentPath];
 
   if (service) {
@@ -76,15 +87,20 @@ export default function App() {
     );
   }
 
+  // Homepage
   return (
     <div className="App">
       <Navbar />
 
       <main>
         <Hero />
+
         <About />
+
         <Services />
+
         <Booking />
+
         <Contact />
       </main>
 
