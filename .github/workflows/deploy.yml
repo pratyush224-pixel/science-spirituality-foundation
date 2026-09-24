@@ -33,6 +33,28 @@ jobs:
       - name: Build React website
         run: npm run build
 
+      - name: Create route entry points
+        run: |
+          mkdir -p build/certificates
+          mkdir -p build/services/reiki
+          mkdir -p build/services/dowsing
+          mkdir -p build/services/past-life-regression
+          mkdir -p build/services/chakra-wellness
+          mkdir -p build/services/spiritual-wellness
+          mkdir -p build/services/meditation
+          mkdir -p build/services/manifestation
+          mkdir -p build/services/fingerprint-analysis
+
+          cp build/index.html build/certificates/index.html
+          cp build/index.html build/services/reiki/index.html
+          cp build/index.html build/services/dowsing/index.html
+          cp build/index.html build/services/past-life-regression/index.html
+          cp build/index.html build/services/chakra-wellness/index.html
+          cp build/index.html build/services/spiritual-wellness/index.html
+          cp build/index.html build/services/meditation/index.html
+          cp build/index.html build/services/manifestation/index.html
+          cp build/index.html build/services/fingerprint-analysis/index.html
+
       - name: Create GitHub Pages fallback
         run: cp build/index.html build/404.html
 
