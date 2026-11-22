@@ -1542,3 +1542,22 @@ section {
     line-height: 1.75;
   }
 }
+
+/* =========================================================
+   PLR PHOTOGRAPH — HOMEPAGE SERVICE CARD ONLY
+   ========================================================= */
+.service-card .plr-service-card-photo {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .service-card .plr-service-card-photo {
+    height: 200px;
+  }
+}
