@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface ServiceCardProps {
@@ -15,8 +16,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description,
   link,
 }) => {
+  const isPLR =
+    title.toLowerCase().includes("past life regression");
+
   return (
     <article className="service-card">
+      {isPLR && (
+        <img
+          src={`${BASE_PATH}/plr-service-card.webp`}
+          alt="Past Life Regression session at SSF"
+          className="plr-service-card-photo"
+          loading="lazy"
+        />
+      )}
+
       <div className="service-card-icon">✦</div>
 
       <h3>{title}</h3>
